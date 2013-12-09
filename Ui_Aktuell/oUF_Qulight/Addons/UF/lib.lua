@@ -51,7 +51,7 @@ UpdateReputationColor = function(self, event, unit, bar)
 end
 gen_fontstring = function(f, name, size, outline)
     local fs = f:CreateFontString(nil, "OVERLAY")
-    fs:SetFont(name, size, "OUTLINE")
+    fs:SetFont(name, 11, "OUTLINE")
     return fs
 end
 PortraitUpdate = function(self, unit) 
@@ -334,7 +334,7 @@ gen_hpstrings = function(f)
 	
 	local per = f.Health:CreateFontString(nil, "OVERLAY")
 	per:SetPoint("RIGHT", -3, retVal(f, -3, 4, -3, -3))
-	per:SetFont(Qulight["media"].font, 9, "OUTLINE")
+	per:SetFont(Qulight["media"].font, 10, "OUTLINE")
 	f:Tag(per, retVal(f,'[color][power] | [perpp]%','[hp]','','' ))		
 end
 gen_ppbar = function(f)
@@ -351,7 +351,7 @@ gen_ppbar = function(f)
 		local h = CreateFrame("Frame", nil, s)
 		s:SetPoint("BOTTOM",f,"BOTTOM",0,4)
 		h:SetFrameLevel(3)
-		s:SetWidth(212)
+		s:SetWidth(360)
 		h:SetPoint("TOPLEFT",-5,5)
 		h:SetPoint("BOTTOMRIGHT",5,-5)
 		CreateShadow00(h)
@@ -360,7 +360,7 @@ gen_ppbar = function(f)
 		local h = CreateFrame("Frame", nil, s)
 		s:SetPoint("BOTTOM",f,"BOTTOM",0,4)
 		h:SetFrameLevel(3)
-		s:SetWidth(212)
+		s:SetWidth(360)
 		h:SetPoint("TOPLEFT",-5,5)
 		h:SetPoint("BOTTOMRIGHT",5,-5)
 		CreateShadow00(h)		
@@ -414,7 +414,7 @@ gen_ppbar = function(f)
 		local h = CreateFrame("Frame", nil, s)
 		s:SetPoint("BOTTOM",f,"BOTTOM",0,4)
 		h:SetFrameLevel(3)
-		s:SetWidth(92)
+		s:SetWidth(180)
 		h:SetPoint("TOPLEFT",-5,5)
 		h:SetPoint("BOTTOMRIGHT",5,-5)
 		CreateShadow00(h)
@@ -857,17 +857,17 @@ local postUpdateIcon = function(element, unit, button, index)
 end
 createAuras = function(f)
 	Auras = CreateFrame("Frame", nil, f)
-	Auras.size = 18		
-	Auras:SetHeight(42)
+	Auras.size = 20	
+	Auras:SetHeight(41)
 	Auras:SetWidth(f:GetWidth())
-	Auras.spacing = 7
+	Auras.spacing = 8
 	if f.mystyle == "target" then
-		Auras:SetPoint("BOTTOM", f, "BOTTOM", 0, -22)
-		Auras.numBuffs = 10
-		Auras.numDebuffs = 10
-		Auras.size = 18	
+		Auras:SetPoint("BOTTOMLEFT", f, 0, 44)
+		Auras.numBuffs = 20
+		Auras.numDebuffs = 15
+		Auras.size = 21	
 		--Auras.onlyShowPlayer = true
-		Auras.spacing = 4.4
+		Auras.spacing = 7
 	end
 	if f.mystyle == "tot" then
 		Auras:SetPoint("BOTTOM", f, "BOTTOM", 0, -16)
@@ -885,7 +885,7 @@ createAuras = function(f)
 	Auras.gap = true
 	Auras.initialAnchor = "BOTTOMLEFT"
 	Auras["growth-x"] = "RIGHT"		
-	Auras["growth-y"] = "DOWN"
+	Auras["growth-y"] = "UP"
 	Auras.PostCreateIcon = postCreateIcon
 	Auras.PostUpdateIcon = postUpdateIcon
 	f.Auras = Auras
@@ -1250,7 +1250,7 @@ genShards = function(self)
 	if myclass == "WARLOCK" then
 		local wb = CreateFrame("Frame", "WarlockSpecBars", self)
 		wb:SetPoint("BOTTOMLEFT", self, "TOPLEFT", 4, -9)
-		wb:SetWidth(123)
+		wb:SetWidth(213)
 		wb:SetHeight(6)
 		wb:SetBackdrop(backdrop)
 					
@@ -1403,16 +1403,16 @@ local function CreatePlayerStyle(self, unit, isSingle)
 	self.mystyle = "player"
 	init(self)
 	self.scale = scale
-	self:SetSize(220,38)
+	self:SetSize(362,38)
 	gen_hpbar(self)
 	gen_hpstrings(self)
 	gen_highlight(self)
 	gen_ppbar(self)
 	gen_RaidMark(self)
-	createDebuffs(self)
+--	createDebuffs(self)
 	if Qulight["unitframes"].showPlayerAuras then
 		BuffFrame:Hide()
-		createBuffs(self)
+--		createBuffs(self)
 	end
 	self.Health.frequentUpdates = true
 	if Qulight["unitframes"].HealthcolorClass then
@@ -1448,7 +1448,7 @@ local function CreateTargetStyle(self, unit, isSingle)
 	self.mystyle = "target"
 	init(self)
 	self.scale = scale
-	self:SetSize(220,38)
+	self:SetSize(362,38)
 	gen_hpbar(self)
 	gen_hpstrings(self)
 	gen_highlight(self)
@@ -1512,7 +1512,7 @@ local function CreateToTStyle(self, unit, isSingle)
 	self.mystyle = "tot"
 	init(self)
 	self.scale = scale
-	self:SetSize(100,28)
+	self:SetSize(188,28)
 	gen_hpbar(self)
 	gen_hpstrings(self)
 	gen_highlight(self)
@@ -1646,24 +1646,24 @@ if not Qulight["unitframes"].enable == true then return end
 oUF:Factory(function(self)
 	self:SetActiveStyle("Player")
 	local player = self:Spawn("player", "oUF_Player")
-	player:SetPoint("BOTTOM", Anchorplayer)
+	player:SetPoint("TOPRIGHT", UIParent, "BOTTOM", -124, 170)
 	self:SetActiveStyle("Target")
 	local target = self:Spawn("Target", "oUF_Target")
-	target:SetPoint("BOTTOM", Anchortarget)
+	target:SetPoint("TOPLEFT", UIParent, "BOTTOM", 124, 170)
 	if Qulight["unitframes"].showtot then
 		self:SetActiveStyle("ToT")
 		local targettarget = self:Spawn("targettarget", "oUF_tot")
-		targettarget:SetPoint("BOTTOM", Anchortot)
+		targettarget:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 141)
 	end
 	if Qulight["unitframes"].showpet then
 		self:SetActiveStyle("Pet")
 		local pet = self:Spawn("pet", "oUF_pet")
-		pet:SetPoint("BOTTOM", Anchorpet)
+		pet:SetPoint("LEFT", 10, -40)
 	end
 	if Qulight["unitframes"].showfocus then 
 		self:SetActiveStyle("Focus")
 		local focus = self:Spawn("focus", "oUF_focus")
-		focus:SetPoint("BOTTOM", Anchorfocus)
+		focus:SetPoint("LEFT", 10, -80)
 	end
 	if Qulight["unitframes"].showfocustarget then 
 		self:SetActiveStyle("FocusTarget")

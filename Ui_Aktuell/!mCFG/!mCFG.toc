@@ -1,4 +1,4 @@
-## Interface: 50400
+## Interface: 50100
 ## Notes: Custom MonoUI configuration
 ## Title: mono|cff6FDE90User|r|cffffffffConfig|r
 ## Author: Monolit

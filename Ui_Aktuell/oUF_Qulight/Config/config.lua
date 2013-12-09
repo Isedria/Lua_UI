@@ -1,7 +1,7 @@
 ﻿Qulight["media"] = {
 	["font"] = [=[Interface\Addons\oUF_Qulight\Root\Media\qFont.ttf]=], 			        -- main font in Qulight UI
 	["pxfont"] = [=[Interface\Addons\oUF_Qulight\Root\Media\pxFont.ttf]=],
-	["fontsize"] = 10, 														    		-- size of font 
+	["fontsize"] = 12, 														    		-- size of font 
 }
 Qulight["general"] = {
 	["AutoScale"] = true,  																-- mainly enabled for users that don't want to mess with the config file
@@ -70,7 +70,7 @@ Qulight["raidframes"] = {
 Qulight["unitframes"] = {
 	["enable"] = true,																	-- enable/disable action bars
 	["HealthcolorClass"] = false,														-- health color = class color
-	["bigcastbar"] = true,
+	["bigcastbar"] = false,
 	["Powercolor"] = true,																-- power color = class color
 	["showtot"] = true, 																-- show target of target frame
 	["showpet"] = true,																	-- show pet frame
@@ -88,7 +88,7 @@ Qulight["unitframes"] = {
 	["showHolybar"] = true, 															-- show paladin HolyPower bar
 	["showEclipsebar"] = true, 															-- show druid eclipse bar
 	["showShardbar"] = true, 															-- show warlock soulShard bar
-	["Castbars"] = true, 																-- use built-in castbars
+	["Castbars"] = false, 																-- use built-in castbars
 }
 Qulight["buffdebuff"] = {
 	["enable"] = true,  
@@ -101,5 +101,5 @@ Qulight["buffdebuff"] = {
 }
 
 Qulight["misk"] = {																-- enable disable filger
-	["classtimer"] = true,																-- enable disable classtimer
+	["classtimer"] = false,																-- enable disable classtimer
 }  

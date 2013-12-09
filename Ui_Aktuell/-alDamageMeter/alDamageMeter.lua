@@ -1,26 +1,26 @@
 local anchor = "BOTTOMRIGHT"
-local x, y = -169, 33
+local x, y = -13, 34
 local font = GameFontNormal:GetFont()
 local texture = "Interface\\TargetingFrame\\UI-StatusBar"
 
 local defaults = {
 	barheight = 13,
 	spacing = 1,
-	maxbars = 9,
-	width = 160,
+	maxbars = 11,
+	width = 170,
 	maxfights = 10,
 	reportstrings = 10,
 	backdrop_color = {0, 0, 0, 0},
 	border_color = {0, 0, 0, 0},
 	border_size = 1,
 	font_style = "NONE",
-	font_size = 10,
-	hidetitle = false,
+	font_size = 12,
+	hidetitle = true,
 	barcolor = {0.4, 0.9, 0.4, 1},
 	classcolorbar = true,
 	onlyboss = false,
-	classcolorname = false,
-	mergeHealAbsorbs = false,
+	classcolorname = true,
+	mergeHealAbsorbs = true,
 }
 dmconf = defaults
 

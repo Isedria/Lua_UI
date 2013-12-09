@@ -626,4 +626,4 @@ quuuu:SetScript("OnClick", function()
 end)
 
 SlashCmdList["UICONFIG"] = CreateQulightConfigUI
-SLASH_UICONFIG1 = "/config"
+SLASH_UICONFIG1 = "/configouf"

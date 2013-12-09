@@ -227,7 +227,7 @@ SlashCmdList["ui"] = SlashCmd;
 SLASH_ui1 = "/ui";
 
 Anchorplayer = CreateFrame("Frame","Move_player",UIParent)
-Anchorplayer:SetPoint("TOPRIGHT", UIParent, "BOTTOM", -250, 329)
+Anchorplayer:SetPoint("TOPRIGHT", UIParent, "BOTTOM", -200, 329)
 CreateAnchor(Anchorplayer, "Move player", 220, 38)
 
 Anchortarget = CreateFrame("Frame","Move_target",UIParent)
